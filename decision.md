@@ -46,3 +46,19 @@ SEO tidak ditambahkan di akhir, tapi:
 
 * dirancang sejak awal
 * tiap page punya metadata & structured data
+
+## D7 — Performance Optimization Phase
+
+Project dioptimalkan menggunakan next/image dan server-first rendering untuk menjaga Lighthouse score tinggi tanpa menambah kompleksitas client-side.
+
+## D8 — Analytics as Optional Enhancement
+
+Analytics ditambahkan sebagai optional layer untuk menunjukkan awareness terhadap data tracking tanpa mengorbankan performance.
+
+## D9 — Controlled Client Interactivity
+
+Client-side logic hanya digunakan pada search input berbasis URL params untuk menjaga arsitektur tetap server-first.
+
+## D10 — Portfolio-Oriented Design
+
+Project dipoles bukan untuk fitur tambahan, tetapi untuk memperjelas kualitas engineering, SEO implementation, dan performance awareness.
