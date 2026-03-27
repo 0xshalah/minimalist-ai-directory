@@ -10,7 +10,9 @@ Sebuah direktori AI tools yang clean dan cepat, dibangun dengan Next.js untuk me
 
 ## 🎯 Tujuan Proyek
 
-Proyek ini dibuat untuk menunjukkan kemampuan frontend engineering di luar sekadar UI, dengan fokus pada:
+Proyek ini berfokus pada pembuatan direktori AI tools yang cepat, mudah diakses, dan SEO-friendly.
+
+Pendekatan yang digunakan menitikberatkan pada:
 
 - SEO (metadata dinamis & JSON-LD)
 - Static-first rendering
