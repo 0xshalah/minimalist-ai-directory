@@ -1,6 +1,7 @@
 # Minimalist AI Directory
 
 **🔴 Live Demo:** https://minimalist-ai-directory.vercel.app
+
 **📂 Repository:** https://github.com/0xshalah/minimalist-ai-directory
 
 Sebuah direktori AI tools yang clean dan cepat, dibangun dengan Next.js untuk menunjukkan implementasi nyata dari SEO, performance optimization, dan arsitektur frontend modern.
