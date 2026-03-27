@@ -1,104 +1,168 @@
 # Minimalist AI Directory
 
-**[🔴 Live Demo](https://minimalist-ai-directory.vercel.app)** | **[📂 GitHub Repository](https://github.com/yourusername/minimalist-ai-directory)**
+**🔴 Live Demo:** https://minimalist-ai-directory.vercel.app
+**📂 Repository:** https://github.com/0xshalah/minimalist-ai-directory
 
-![UI Preview Cover Image Placeholder - Replace with actual screenshot of Web UI](/public/ui-preview.jpg)
+![Preview UI](/public/ui-preview.jpg)
 
-A clean and fast AI tools directory built with Next.js.
+Sebuah direktori AI tools yang clean dan cepat, dibangun dengan Next.js untuk menunjukkan implementasi nyata dari SEO, performance optimization, dan arsitektur frontend modern.
 
-This project focuses on:
-- SEO best practices (metadata, JSON-LD)
+---
+
+## 🎯 Tujuan Proyek
+
+Proyek ini dibuat untuk menunjukkan kemampuan frontend engineering di luar sekadar UI, dengan fokus pada:
+
+- SEO (metadata dinamis & JSON-LD)
 - Static-first rendering
-- Performance optimization
-- Clear and maintainable component architecture
+- Optimasi performa (Core Web Vitals)
+- Arsitektur komponen yang rapi dan scalable
 
 ---
 
-## Why This Project?
+## 🧱 Tech Stack
 
-This project was built to demonstrate practical frontend engineering skills beyond UI development.
-
-The focus is on:
-- building SEO-friendly pages using Next.js App Router
-- implementing structured data (JSON-LD)
-- keeping the application fast with server-first rendering
-- maintaining a clean and scalable component structure
-
-## The Technical Stack
-- **Framework:** Next.js 16 (App Router)
-- **Styling:** Tailwind CSS v4 & shadcn/ui
-- **Data Engine:** Headless mocked TypeScript Data Layer
-- **Analytics:** Google Analytics 4, Tag Manager, Microsoft Clarity (via `@next/third-parties`)
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS & shadcn/ui
+- **Language:** TypeScript
+- **Analytics:** GA4, GTM, Microsoft Clarity
 
 ---
 
-## Architecture Overview
+## 🏗️ Arsitektur & Pendekatan
 
-The project follows a simple layered structure:
+### 1. Static & Server-First
 
-- **Data Layer (`src/data/tools.ts`):** Provides structured tool data to the application.
-- **Server Components:** UI is resolved on the server to ensure fast initial page loads.
-- **Routing:** Dynamic routes for tools and categories using `generateStaticParams`.
-- **SEO Layer:** Programmatic metadata and JSON-LD per page for better search visibility.
+Aplikasi ini menggunakan pendekatan **server-first** dengan static rendering.
 
-This approach keeps the app fast, predictable, and easy to maintain.
-
-### URL-Param Search State
-Search filtering is handled via Native URL parameters (`/?q=keyword`) instead of client-side state. This ensures search results are shareable, SSR-compatible, and easy for search engines to crawl.
-
-### Performance Approach
-- **Image Optimization:** Uses `next/image` to optimize images and reduce layout shift (CLS).
-- **Minimal JS:** Defaults to server components to minimize the client-side JavaScript bundle.
-- **Resource Hints:** Uses `preconnect` hints to improve external resource loading performance.
+Client component hanya digunakan secara minimal (misalnya untuk input search), sehingga:
+- JavaScript di browser tetap ringan
+- performa tetap optimal
+- halaman cepat di-load
 
 ---
 
-## Future Improvements
+### 2. Layered Architecture
 
-- **Headless CMS integration with ISR:** Transitioning from local data to a headless CMS (Sanity/Contentful) using Incremental Static Regeneration for real-time updates.
-- **User submission system using Server Actions:** Implementing a secure tool submission pipeline using Next.js Server Actions and Zod for validation.
-- **Advanced filtering via URL params:** Expanding search to include multi-criteria filtering (Pricing, Model, Open Source).
-- **MDX-based rich content pages:** Support for deep reviews and tutorials using MDX.
-- **Authentication and saved tools:** Adding a personalization layer with Auth.js to allow users to save their preferred tools.
+Struktur proyek dibagi menjadi beberapa layer:
 
----
+- **Data Layer (`src/data/tools.ts`)**
+  Menyediakan data tools dalam format terstruktur (mock CMS)
 
-## Local Development & Setup
+- **Server Components**
+  Semua UI utama dirender di server
 
-1. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
+- **Routing**
+  - `/` → homepage
+  - `/tools/[slug]` → detail tool
+  - `/category/[slug]` → halaman kategori
 
-2. **Configure Environment:**
-   Create a `.env.local` file:
-   ```env
-   NEXT_PUBLIC_SITE_URL=http://localhost:3000
-   NEXT_PUBLIC_GA_ID=G-XXXXXXXX
-   NEXT_PUBLIC_GTM_ID=GTM-XXXXXXXX
-   NEXT_PUBLIC_CLARITY_ID=XXXXXXX
-   ```
-
-3. **Run Development Server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Production Build:**
-   ```bash
-   npm run build
-   npm run start
-   ```
+- **SEO Layer (`src/lib/seo.ts`)**
+  Mengatur metadata dan JSON-LD secara dinamis untuk setiap halaman
 
 ---
 
-## Lighthouse Verification (Portfolio Benchmark)
+### 3. Search Berbasis URL
 
-**Target Scores:** Performance (~98-100), Accessibility (100), Best Practices (100), SEO (100).
+Fitur search menggunakan query parameter:
 
-![Lighthouse Score Placeholder - Replace with actual audit screenshot](/public/lighthouse.png)
+```
+/?q=chatgpt
+```
 
-*To verify benchmarks:*
-1. Run `npm run build && npm run start` for a production-local test.
-2. Audit in Chrome **Incognito** to avoid extension interference.
-3. Check the Homepage, a Category page, and a Tool Detail page.
+Pendekatan ini dipilih karena:
+- bisa di-share (shareable URL)
+- tetap SSR-friendly
+- mudah di-cache
+
+---
+
+### 4. Performance Optimization
+
+- Menggunakan `next/image` untuk optimasi gambar
+- Meminimalkan penggunaan client-side JavaScript
+- Menggunakan resource hints untuk mempercepat loading
+
+---
+
+## 🔍 SEO Implementation
+
+### Metadata
+- Title & description dinamis per halaman
+- Open Graph & Twitter Card
+- Canonical URL
+
+### JSON-LD
+- **Homepage:** WebSite, ItemList
+- **Detail Page:** SoftwareApplication, BreadcrumbList
+- **Category Page:** CollectionPage, BreadcrumbList
+
+---
+
+## ⚙️ Technical SEO
+
+- `sitemap.ts` → generate sitemap otomatis
+- `robots.ts` → konfigurasi crawler
+- URL clean & SEO-friendly
+
+---
+
+## 📊 Analytics
+
+Struktur sudah siap untuk:
+- Google Analytics (GA4)
+- Google Tag Manager (GTM)
+- Microsoft Clarity
+
+Semua di-load secara non-blocking agar tidak mengganggu performa.
+
+---
+
+## 🚀 Cara Menjalankan
+
+```bash
+npm install
+npm run dev
+```
+
+### Environment Variables
+
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+NEXT_PUBLIC_GA_ID=G-XXXXXXXX
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXXX
+NEXT_PUBLIC_CLARITY_ID=XXXXXXX
+```
+
+---
+
+## 📈 Future Improvements
+
+- Integrasi Headless CMS + ISR
+- Submit tool (Server Actions + Zod)
+- Advanced filtering berbasis URL
+- MDX untuk konten detail
+- Auth & fitur bookmark tools
+
+---
+
+## 📊 Lighthouse
+
+Target:
+- Performance: 90+
+- SEO: 95+
+- Accessibility: 90+
+
+![Lighthouse Result](/public/lighthouse.png)
+
+---
+
+## 🧠 Insight
+
+Proyek ini tidak fokus pada kompleksitas fitur, tetapi pada:
+
+- kejelasan arsitektur
+- performa
+- SEO
+- maintainability
