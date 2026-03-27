@@ -3,8 +3,6 @@
 **🔴 Live Demo:** https://minimalist-ai-directory.vercel.app
 **📂 Repository:** https://github.com/0xshalah/minimalist-ai-directory
 
-![Preview UI](/public/ui-preview.jpg)
-
 Sebuah direktori AI tools yang clean dan cepat, dibangun dengan Next.js untuk menunjukkan implementasi nyata dari SEO, performance optimization, dan arsitektur frontend modern.
 
 ---
@@ -149,12 +147,18 @@ NEXT_PUBLIC_CLARITY_ID=XXXXXXX
 
 ## 📊 Lighthouse
 
-Target:
-- Performance: 90+
-- SEO: 95+
-- Accessibility: 90+
+Aplikasi ini dirancang untuk mencapai skor tinggi pada:
 
-![Lighthouse Result](/public/lighthouse.png)
+- Performance
+- SEO
+- Accessibility
+
+Silakan jalankan audit Lighthouse pada:
+- Homepage
+- Tool detail page
+- Category page
+
+untuk melihat hasil performa secara langsung.
 
 ---
 
